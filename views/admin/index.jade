@@ -47,26 +47,31 @@ html
 
 				//app.init();
 
-				EventsCtrl.init();
+				Router.addRoute({
+					url: "/",
+					callback: function(){
+						var container = $("#content");
+						var fileName = "views/admin/home.jade";
+						var data = {};
+						helpers.displayWithJade(container, fileName, data);
+					},
+					default: true
+				})
 
-				/*
 				Router.addRoute({
 					url: "/artists",
-					callback: UsersCtrl.init,
+					callback: ArtistsCtrl.init
 				})
 				
 				Router.addRoute({
 					url: "/events",
-					callback: function(){
-						alert("events here")
-					}
+					callback: EventsCtrl.init
 				})
 
 				Router.init();
 
 				// queries
-				*/
-
+				
 
 
 			})
