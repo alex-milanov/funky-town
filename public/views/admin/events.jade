@@ -1,0 +1,38 @@
+h2 Events
+
+.row
+	.col-sm-4
+		form.well#events-form
+			.form-group
+				label Name
+				input.form-control(name="name",type="text")
+			.form-group
+				label Date & Time
+				input.form-control(name="dateTime",type="date")
+			.form-group
+				label Poster
+				input.form-control(name="poster",type="text")
+			.form-group
+				label Info
+				textarea.form-control(name="info")
+			input(type="hidden",name="_id",value="")
+			button.btn.btn-primary(type="submit") Save
+			button.btn.btn-default.action-reset(type="button") Reset
+
+	.col-sm-8
+		table.table
+			thead: tr
+				th Name
+				th Date & Time
+				th Poster
+				th Actions
+			tbody
+				each event in events
+					tr
+						td= event.name
+						td= event.dateTime
+						td= event.poster
+						td
+							a.btn.btn-primary.action-edit(data-id=event._id) edit
+							| &nbsp; 
+							a.btn.btn-danger.action-delete(data-id=event._id) delete

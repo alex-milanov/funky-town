@@ -32,12 +32,14 @@ html
 		script(src="/lib/q/q.js")
 		script(src="/lib/bootstrap/dist/js/bootstrap.js")
 		script(src="/lib/jade/jade.js")
+		script(src="/lib/moment/moment.js")
 		//- tools
 		script(src="/js/tools/resource.js")
 		script(src="/js/tools/helpers.js")
 		script(src="/js/tools/router.js")
 		//- app
 		script(src="/js/controllers/admin/artists.js")
+		script(src="/js/controllers/admin/events.js")
 		
 
 		script.
@@ -45,7 +47,7 @@ html
 
 				//app.init();
 
-				ArtistsCtrl.init();
+				EventsCtrl.init();
 
 				/*
 				Router.addRoute({
