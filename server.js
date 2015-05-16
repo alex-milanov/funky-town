@@ -36,6 +36,12 @@ app.get('/', function (req, res) {
   res.render('index');
 })
 
+// admin route
+app.get('/admin/', function (req, res) {
+  res.render('admin/index');
+})
+
+
 // listen for files: /post -> /views/post.jade
 app.get("/:fileName", function(req, res, next){
   if(req.params && req.params.fileName){

@@ -1,0 +1,33 @@
+h2 Artists
+
+.row
+	.col-sm-4
+		form.well#artists-form
+			.form-group
+				label Name
+				input.form-control(name="name",type="text")
+			.form-group
+				label Picture
+				input.form-control(name="picture",type="text")
+			.form-group
+				label Bio
+				textarea.form-control(name="bio")
+			input(type="hidden",name="_id",value="")
+			button.btn.btn-primary(type="submit") Save
+			button.btn.btn-default.action-reset(type="button") Reset
+
+	.col-sm-8
+		table.table
+			thead: tr
+				th Name
+				th Picture
+				th Actions
+			tbody
+				each artist in artists
+					tr
+						td= artist.name
+						td= artist.picture
+						td
+							a.btn.btn-primary.action-edit(data-id=artist._id) edit
+							| &nbsp; 
+							a.btn.btn-danger.action-delete(data-id=artist._id) delete
