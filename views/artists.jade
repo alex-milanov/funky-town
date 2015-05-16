@@ -1,0 +1,42 @@
+extends layout
+
+block content
+	.container-fluid#artists
+		h1 Artists
+		div#artists-list
+			.row
+				.col-xs-3
+					img(src="/img/artists/james-brown.jpg",width="100%")
+				.col-xs-9
+					h2 James Brown
+			.row
+				.col-xs-3
+					img(src="/img/artists/tom-jones.jpeg",width="100%")
+				.col-xs-9
+					h2 Tom Jones
+			.row
+				.col-xs-3
+					img(src="/img/artists/jamiroquai.jpg",width="100%")
+				.col-xs-9
+					h2 Jamiroquai
+block scripts
+	script.
+		$(document).ready(function(){
+			var artistRes = new Resource("/api/artists");
+
+			artistRes.query().then(function(result){
+				var artists = result.list;
+				console.log("Artists loaded!",artists);
+
+				var container = $("#artists-list");
+				var fileName = "/views/artists-list.jade";
+				var data = {
+					artists: artists
+				};
+
+				return helpers.displayWithJade(container,fileName,data);
+
+			}).then(function(){
+				console.log("Artists displayed!");
+			})
+		})
